@@ -1,0 +1,13 @@
+#!/bin/sh
+#SBATCH -J PostProcessing
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=julien.valentin@umontpellier.fr
+#SBATCH --partition=gm_rheovolution
+#SBATCH --account=rheovolution
+#SBATCH --output="main_%A-%a.out"
+
+module load python/Anaconda/3-5.1.0
+
+python main2.py > mainlog.log
+
+module unload python/Anaconda/3-5.1.0
